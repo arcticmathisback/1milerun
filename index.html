@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sub-5 Mile — Daily Grind</title>
+<meta name="description" content="Trying every single day until I get 1 mile done in 5 minutes. No stopping.">
+<meta name="theme-color" content="#0A0A0B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sub-5 Mile — Daily Grind">
+<meta property="og:description" content="Trying every single day until I get 1 mile done in 5 minutes. No stopping.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23E31C1C' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mat:#0A0A0B;
+    --raised:#141417;
+    --raised-2:#1B1B1F;
+    --chalk:#F6F5F2;
+    --steel:#85888F;
+    --line:rgba(246,245,242,.10);
+    --accent:#E31C1C;
+    --accent-soft:rgba(227,28,28,.14);
+    --accent-text:#FF3B3B;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--mat);
+    color:var(--chalk);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    line-height:1.5;
+  }
+  ::selection{background:var(--accent);color:#0A0A0B}
+  a{color:inherit}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--accent-text);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+  .section{padding:108px 0}
+
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--steel);
+  }
+
+  .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+  .eyebrow .dash{height:1px;width:42px;background:var(--accent)}
+
+  .section-title{
+    font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;
+    line-height:.94;letter-spacing:.005em;font-size:clamp(2.4rem,6.5vw,4.4rem);
+  }
+  .lede{max-width:46ch;margin-top:18px;font-size:1.06rem;color:#D3D2CD}
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{border-bottom:1px solid var(--line);position:relative;z-index:5}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 28px}
+  .topbar .brand{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase}
+  .topbar .live{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.2em;color:var(--steel);text-transform:uppercase}
+  .topbar .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(227,28,28,.6);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(227,28,28,.55)}70%{box-shadow:0 0 0 7px rgba(227,28,28,0)}100%{box-shadow:0 0 0 0 rgba(227,28,28,0)}}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:96px 0 70px;text-align:center;overflow:hidden}
+  .mat{position:absolute;top:50%;left:50%;width:min(120vw,860px);height:min(120vw,860px);transform:translate(-50%,-54%);pointer-events:none;z-index:0}
+  .mat .ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(246,245,242,.07)}
+  .mat .ring.inner{inset:21%;border-color:rgba(246,245,242,.05)}
+  .mat .center{position:absolute;top:50%;left:50%;width:38px;height:2px;background:var(--accent);transform:translate(-50%,-50%);opacity:.9}
+  .mat-glow{position:absolute;top:50%;left:50%;width:min(120vw,820px);height:min(120vw,820px);transform:translate(-50%,-54%);background:radial-gradient(circle, rgba(227,28,28,.07) 0%, rgba(255,255,255,0) 56%);pointer-events:none;z-index:0}
+
+  .hero-inner{position:relative;z-index:2}
+  .hero-eyebrow{justify-content:center;margin-bottom:30px}
+  .name{
+    font-family:'Anton',sans-serif;font-weight:400;line-height:.84;text-transform:uppercase;
+    font-size:clamp(4.2rem,18vw,11rem);letter-spacing:.01em;margin:0 auto;
+    background:linear-gradient(180deg,#FFFFFF 0%, #CFCEC9 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .tagline{margin:26px auto 0;max-width:34ch;color:#D3D2CD;font-size:1.08rem}
+
+  .tape{display:flex;flex-wrap:wrap;justify-content:center;margin:54px auto 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;max-width:760px;background:rgba(20,20,23,.5)}
+  .tape .cell{flex:1 1 0;min-width:128px;padding:22px 16px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:10px;align-items:center}
+  .tape .cell:last-child{border-right:none}
+  .tape .k{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.22em;color:var(--steel);text-transform:uppercase}
+  .tape .v{font-family:'Anton',sans-serif;font-size:1.7rem;text-transform:uppercase;line-height:1}
+
+  /* ---------- BANNER ---------- */
+  .banner{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:radial-gradient(circle at 50% 50%, rgba(227,28,28,.08), rgba(20,20,23,0) 70%);text-align:center;padding:64px 28px}
+  .banner .be{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent-text);margin-bottom:18px}
+  .banner .bt{font-family:'Anton',sans-serif;text-transform:uppercase;line-height:.98;font-size:clamp(1.9rem,5.2vw,3.3rem);max-width:22ch;margin:0 auto}
+  .banner .bs{margin-top:16px;color:#D3D2CD;font-size:1rem}
+
+  /* ---------- THE GO-TO / STRATEGY ---------- */
+  .move-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+  .step{position:relative;background:var(--raised);border:1px solid var(--line);border-radius:14px;padding:28px 24px 26px;overflow:hidden;transition:border-color .3s ease, transform .3s ease, background .3s ease}
+  .step:hover{border-color:rgba(227,28,28,.55);transform:translateY(-4px);background:var(--raised-2)}
+  .step .num{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.18em;color:var(--accent-text);margin-bottom:30px;display:block}
+  .step .label{font-family:'Anton',sans-serif;font-size:1.7rem;text-transform:uppercase;line-height:1;display:inline-block}
+  .step .note{margin-top:12px;color:var(--steel);font-size:.92rem}
+
+  /* ---------- LOG / TRACKER ---------- */
+  .gym-row{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;margin-top:14px}
+  .spots{display:flex;flex-direction:column;gap:14px}
+  .spot{display:flex;align-items:center;justify-content:space-between;background:var(--raised);border:1px solid var(--line);border-radius:12px;padding:20px 24px;transition:border-color .3s ease,transform .3s ease}
+  .spot:hover{border-color:rgba(227,28,28,.45);transform:translateX(4px)}
+  .spot .name-s{font-family:'Anton',sans-serif;font-size:1.45rem;text-transform:uppercase}
+  .spot .tag{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.18em;color:var(--accent-text);text-transform:uppercase}
+
+  /* ---------- FUEL & MINDSET ---------- */
+  .fuel-card{margin-top:14px;border:1px solid var(--line);border-radius:18px;padding:48px 44px;background:radial-gradient(circle at 88% 12%, rgba(227,28,28,.14), rgba(20,20,23,0) 42%), var(--raised)}
+  .fuel-card .lede{margin-top:16px}
+
+  /* ---------- FOOTER ---------- */
+  .foot{border-top:1px solid var(--line);padding:46px 0 58px;text-align:center}
+  .foot .sig{font-family:'Anton',sans-serif;font-size:2rem;text-transform:uppercase;letter-spacing:.02em}
+  .foot .sub{margin-top:10px;color:var(--steel);font-size:.86rem}
+  .foot .dot{color:var(--accent)}
+
+  /* ---------- REVEAL ANIMATIONS ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .pre{opacity:0;transform:translateY(20px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .d1{animation-delay:.05s}.d2{animation-delay:.2s}.d3{animation-delay:.38s}.d4{animation-delay:.55s}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:760px){
+    .section{padding:78px 0}
+    .move-grid{grid-template-columns:1fr}
+    .gym-row{grid-template-columns:1fr;gap:26px}
+    .tape .cell{flex:1 1 40%;min-width:40%}
+    .fuel-card{padding:34px 26px}
+    .hero{padding:64px 0 50px}
+  }
+  @media(max-width:430px){
+    .tape .cell{flex:1 1 100%;min-width:100%;border-right:none;border-bottom:1px solid var(--line)}
+    .tape .cell:last-child{border-bottom:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+    .pre{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="wrap">
+      <span class="brand">Project Sub-5 Mile</span>
+      <span class="live">Daily Attempt Active</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="mat-glow"></div>
+    <div class="mat"><div class="ring"></div><div class="ring inner"></div><div class="center"></div></div>
+    <div class="wrap hero-inner">
+      <div class="eyebrow hero-eyebrow pre d1"><span class="dash"></span><span class="mono">1 Mile · Sub 5 Minutes · No Stopping</span><span class="dash"></span></div>
+      <h1 class="name pre d2">5:00 OR DIE</h1>
+      <p class="tagline pre d3">Trying every single day until I run 1 mile in under 5 minutes. No slowing down, no stopping.</p>
+      <div class="tape pre d4">
+        <div class="cell"><span class="k">Target Distance</span><span class="v">1.0 Mile</span></div>
+        <div class="cell"><span class="k">Goal Time</span><span class="v">&lt; 5:00</span></div>
+        <div class="cell"><span class="k">Target Pace</span><span class="v">12 MPH</span></div>
+        <div class="cell"><span class="k">Current PB</span><span class="v">5:18</span></div>
+        <div class="cell"><span class="k">Rule</span><span class="v">No Stopping</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+  <!-- BANNER -->
+  <section class="banner reveal">
+    <p class="be">Consistency. Endurance. Speed.</p>
+    <p class="bt">Every day is a trial. Every lap counts.</p>
+    <p class="bs">75 seconds per 400m lap. Absolute focus.</p>
+  </section>
+
+  <!-- THE STRATEGY -->
+  <section class="section">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span class="dash"></span><span class="mono">Execution</span></div>
+      <h2 class="section-title reveal">Pacing.<br>No Stopping.</h2>
+      <p class="lede reveal">Running a sub-5 minute mile requires maintaining a 12.0 mph pace without dropping speed for a single second.</p>
+      <div class="move-grid">
+        <div class="step reveal"><span class="num">LAP 1</span><span class="label">74s Split</span><p class="note">Explode off the line into target pace. Settle in quickly without over-sprinting.</p></div>
+        <div class="step reveal"><span class="num">LAPS 2-3</span><span class="label">Lock In</span><p class="note">Hold 75s flat. Fight the lactic burn and maintain stride length through the middle.</p></div>
+        <div class="step reveal"><span class="num">LAP 4</span><span class="label">Empty The Tank</span><p class="note">Kick hard down the final stretch. Leave every ounce of energy on the track.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAILY LOG OVERVIEW -->
+  <section class="section">
+    <div class="wrap">
+      <div class="gym-row">
+        <div>
+          <div class="eyebrow reveal"><span class="dash"></span><span class="mono">Recent Attempts</span></div>
+          <h2 class="section-title reveal">The Daily<br>Progress.</h2>
+          <p class="lede reveal">Tracked daily until the goal is broken. No excuses, no rest days on commitment.</p>
+        </div>
+        <div class="spots">
+          <div class="spot reveal"><span class="name-s">Day 12</span><span class="tag">5:18</span></div>
+          <div class="spot reveal"><span class="name-s">Day 11</span><span class="tag">5:22</span></div>
+          <div class="spot reveal"><span class="name-s">Day 10</span><span class="tag">5:25</span></div>
+          <div class="spot reveal"><span class="name-s">Day 09</span><span class="tag">5:31</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINDSET / FUEL -->
+  <section class="section">
+    <div class="wrap">
+      <div class="fuel-card reveal">
+        <div class="eyebrow"><span class="dash"></span><span class="mono">The Mindset</span></div>
+        <h2 class="section-title">Relentless pursuit.</h2>
+        <p class="lede">It's 300 seconds of total effort. Pain is temporary, but breaking sub-5 stays forever. We keep going until the clock says 4:59.</p>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="wrap">
+      <p class="sig">EVERY SINGLE DAY<span class="dot">.</span></p>
+      <p class="sub">1 Mile. Under 5 Minutes. Zero Stopping.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* Scroll reveal script matching design animations */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
